@@ -148,6 +148,24 @@
 #ifndef MSG_PREHEAT_2_SETTINGS
   #define MSG_PREHEAT_2_SETTINGS              MSG_PREHEAT_2 _UxGT(" conf")
 #endif
+#ifndef MSG_PREHEAT_3
+  #define MSG_PREHEAT_3                       _UxGT("Preheat PET")
+#endif
+#ifndef MSG_PREHEAT_3_N
+  #define MSG_PREHEAT_3_N                     MSG_PREHEAT_3 _UxGT(" ")
+#endif
+#ifndef MSG_PREHEAT_3_ALL
+  #define MSG_PREHEAT_3_ALL                   MSG_PREHEAT_3 _UxGT(" All")
+#endif
+#ifndef MSG_PREHEAT_3_END
+  #define MSG_PREHEAT_3_END                   MSG_PREHEAT_3 _UxGT(" End")
+#endif
+#ifndef MSG_PREHEAT_3_BEDONLY
+  #define MSG_PREHEAT_3_BEDONLY               MSG_PREHEAT_3 _UxGT(" Bed")
+#endif
+#ifndef MSG_PREHEAT_3_SETTINGS
+  #define MSG_PREHEAT_3_SETTINGS              MSG_PREHEAT_3 _UxGT(" conf")
+#endif
 #ifndef MSG_COOLDOWN
   #define MSG_COOLDOWN                        _UxGT("Cooldown")
 #endif
@@ -253,6 +271,9 @@
 #ifndef MSG_UBL_BUILD_ABS_MESH
   #define MSG_UBL_BUILD_ABS_MESH              _UxGT("Build ABS Mesh")
 #endif
+#ifndef MSG_UBL_BUILD_PET_MESH
+  #define MSG_UBL_BUILD_PET_MESH              _UxGT("Build PET Mesh")
+#endif
 #ifndef MSG_UBL_BUILD_COLD_MESH
   #define MSG_UBL_BUILD_COLD_MESH             _UxGT("Build Cold Mesh")
 #endif
@@ -270,6 +291,9 @@
 #endif
 #ifndef MSG_UBL_VALIDATE_ABS_MESH
   #define MSG_UBL_VALIDATE_ABS_MESH           _UxGT("Validate ABS Mesh")
+#endif
+#ifndef MSG_UBL_VALIDATE_PET_MESH
+  #define MSG_UBL_VALIDATE_PET_MESH           _UxGT("Validate PET Mesh")
 #endif
 #ifndef MSG_UBL_VALIDATE_CUSTOM_MESH
   #define MSG_UBL_VALIDATE_CUSTOM_MESH        _UxGT("Validate Custom Mesh")
