@@ -1054,6 +1054,9 @@ void lcd_quick_feedback(const bool clear_buttons) {
     #if defined(USER_DESC_5) && defined(USER_GCODE_5)
       void lcd_user_gcode_5() { _lcd_user_gcode(PSTR(USER_GCODE_5 _DONE_SCRIPT)); }
     #endif
+    #if defined(USER_DESC_6) && defined(USER_GCODE_6)
+      void lcd_user_gcode_6() { _lcd_user_gcode(PSTR(USER_GCODE_6 _DONE_SCRIPT)); }
+    #endif
 
     void _lcd_user_menu() {
       START_MENU();
@@ -1072,6 +1075,9 @@ void lcd_quick_feedback(const bool clear_buttons) {
       #endif
       #if defined(USER_DESC_5) && defined(USER_GCODE_5)
         MENU_ITEM(function, USER_DESC_5, lcd_user_gcode_5);
+      #endif
+      #if defined(USER_DESC_6) && defined(USER_GCODE_6)
+        MENU_ITEM(function, USER_DESC_6, lcd_user_gcode_6);
       #endif
       END_MENU();
     }
@@ -3750,7 +3756,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
      * "Temperature" > "Preheat Material 3 conf" submenu
      *
      */
-    void lcd_control_temperature_preheat_material3_settings_menu() { _lcd_control_temperature_preheat_settings_menu(1); }
+    void lcd_control_temperature_preheat_material3_settings_menu() { _lcd_control_temperature_preheat_settings_menu(2); }
 
     void _reset_acceleration_rates() { planner.reset_acceleration_rates(); }
     #if ENABLED(DISTINCT_E_FACTORS)
