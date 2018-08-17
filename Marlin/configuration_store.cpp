@@ -179,9 +179,9 @@ typedef struct SettingsDataStruct {
   //
   // ULTIPANEL
   //
-  int16_t lcd_preheat_hotend_temp[2],                   // M145 S0 H
-          lcd_preheat_bed_temp[2],                      // M145 S0 B
-          lcd_preheat_fan_speed[2];                     // M145 S0 F
+  int16_t lcd_preheat_hotend_temp[3],                   // M145 S0 H
+          lcd_preheat_bed_temp[3],                      // M145 S0 B
+          lcd_preheat_fan_speed[3];                     // M145 S0 F
 
   //
   // PIDTEMP
@@ -589,9 +589,9 @@ void MarlinSettings::postprocess() {
     _FIELD_TEST(lcd_preheat_hotend_temp);
 
     #if DISABLED(ULTIPANEL)
-      constexpr int16_t lcd_preheat_hotend_temp[2] = { PREHEAT_1_TEMP_HOTEND, PREHEAT_2_TEMP_HOTEND },
-                        lcd_preheat_bed_temp[2] = { PREHEAT_1_TEMP_BED, PREHEAT_2_TEMP_BED },
-                        lcd_preheat_fan_speed[2] = { PREHEAT_1_FAN_SPEED, PREHEAT_2_FAN_SPEED };
+      constexpr int16_t lcd_preheat_hotend_temp[3] = { PREHEAT_1_TEMP_HOTEND, PREHEAT_2_TEMP_HOTEND, PREHEAT_3_TEMP_HOTEND },
+                        lcd_preheat_bed_temp[3] = { PREHEAT_1_TEMP_BED, PREHEAT_2_TEMP_BED, PREHEAT_3_TEMP_BED },
+                        lcd_preheat_fan_speed[3] = { PREHEAT_1_FAN_SPEED, PREHEAT_2_FAN_SPEED, PREHEAT_3_FAN_SPEED };
     #endif
 
     EEPROM_WRITE(lcd_preheat_hotend_temp);
@@ -1194,11 +1194,11 @@ void MarlinSettings::postprocess() {
       _FIELD_TEST(lcd_preheat_hotend_temp);
 
       #if DISABLED(ULTIPANEL)
-        int16_t lcd_preheat_hotend_temp[2], lcd_preheat_bed_temp[2], lcd_preheat_fan_speed[2];
+        int16_t lcd_preheat_hotend_temp[3], lcd_preheat_bed_temp[3], lcd_preheat_fan_speed[3];
       #endif
-      EEPROM_READ(lcd_preheat_hotend_temp); // 2 floats
-      EEPROM_READ(lcd_preheat_bed_temp);    // 2 floats
-      EEPROM_READ(lcd_preheat_fan_speed);   // 2 floats
+      EEPROM_READ(lcd_preheat_hotend_temp); // 3 floats
+      EEPROM_READ(lcd_preheat_bed_temp);    // 3 floats
+      EEPROM_READ(lcd_preheat_fan_speed);   // 3 floats
 
       //EEPROM_ASSERT(
       //  WITHIN(lcd_preheat_fan_speed, 0, 255),
@@ -1820,10 +1820,13 @@ void MarlinSettings::reset() {
   #if ENABLED(ULTIPANEL)
     lcd_preheat_hotend_temp[0] = PREHEAT_1_TEMP_HOTEND;
     lcd_preheat_hotend_temp[1] = PREHEAT_2_TEMP_HOTEND;
+    lcd_preheat_hotend_temp[2] = PREHEAT_3_TEMP_HOTEND;
     lcd_preheat_bed_temp[0] = PREHEAT_1_TEMP_BED;
     lcd_preheat_bed_temp[1] = PREHEAT_2_TEMP_BED;
+    lcd_preheat_bed_temp[2] = PREHEAT_3_TEMP_BED;
     lcd_preheat_fan_speed[0] = PREHEAT_1_FAN_SPEED;
     lcd_preheat_fan_speed[1] = PREHEAT_2_FAN_SPEED;
+    lcd_preheat_fan_speed[2] = PREHEAT_3_FAN_SPEED;
   #endif
 
   #if ENABLED(PIDTEMP)
